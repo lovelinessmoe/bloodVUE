@@ -1,0 +1,60 @@
+{
+  "name": "meow_blog_vue",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve --mode development",
+    "build_old": "vue-cli-service build --mode production",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "@element-plus/icons-vue": "^1.1.4",
+    "@smallwei/avue": "^3.0.9",
+    "@types/lodash-es": "^4.17.6",
+    "axios": "^0.26.1",
+    "bufferutil": "^4.0.6",
+    "core-js": "^3.22.7",
+    "element-plus": "^2.2.2",
+    "fibers": "^5.0.1",
+    "less": "^4.1.2",
+    "less-loader": "^10.2.0",
+    "lodash": "^4.17.21",
+    "moment": "^2.29.3",
+    "node-sass": "^7.0.1",
+    "sass-loader": "^12.6.0",
+    "vue": "^3.2.36",
+    "vue-router": "^4.0.15",
+    "vuex": "^4.0.2",
+    "webpack": "5.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.18.2",
+    "@babel/eslint-parser": "^7.18.2",
+    "@vue/cli-plugin-babel": "~5.0.4",
+    "@vue/cli-plugin-eslint": "~5.0.4",
+    "@vue/cli-service": "~5.0.4",
+    "eslint": "^7.32.0",
+    "eslint-plugin-vue": "^8.7.1"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/vue3-essential",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "parser": "@babel/eslint-parser"
+    },
+    "rules": {}
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "not ie 11"
+  ]
+}
