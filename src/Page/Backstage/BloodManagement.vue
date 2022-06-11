@@ -1,17 +1,15 @@
 <template>
+  <!-- eslint-disable-next-line -->
   <div class="animate" style="margin-top: 80px;padding: 20px;">
     <el-row style="margin-bottom:20px">
       <el-radio-group v-model="sizeValue">
-        <el-radio label="small">默认</el-radio>
-        <el-radio label="medium">medium</el-radio>
-        <el-radio label="small">small</el-radio>
-        <el-radio label="mini">mini</el-radio>
+
       </el-radio-group>
     </el-row>
     <avue-form ref="form" v-model="obj" :option="option" @reset-change="emptytChange" @submit="submit">
-      <template #menu-form="">
-        <el-button @click="tip">自定义按钮</el-button>
-      </template>
+<!--      <template #menu-form="">-->
+<!--        <el-button @click="tip">自定义按钮</el-button>-->
+<!--      </template>-->
     </avue-form>
   </div>
 </template>
@@ -49,7 +47,7 @@ export default {
         submitText: '完成',
         printBtn:true,
         column: [{
-          label: "用户名",
+          label: "姓名",
           prop: "username",
           tip: '这是信息提示',
           span: 8,
@@ -89,7 +87,7 @@ export default {
             span:8
           },
           {
-            label: "类型",
+            label: "血型",
             prop: "type",
             type: "select",
             dicData: DIC.VAILD,
@@ -98,28 +96,28 @@ export default {
               type:'dic',
             },
           },
-          {
-            label: "权限",
-            prop: "grade",
-            span: 6,
-            type: "checkbox",
-            dicData: DIC.VAILD,
-            mock:{
-              type:'dic',
-            },
-          },
-          {
-            label: "开关",
-            prop: "switch",
-            span: 6,
-            type: "switch",
-            dicData: DIC.SEX,
-            mock:{
-              type:'dic'
-            },
-            hide: true,
-            row:true,
-          },
+          // {
+          //   label: "权限",
+          //   prop: "grade",
+          //   span: 6,
+          //   type: "checkbox",
+          //   dicData: DIC.VAILD,
+          //   mock:{
+          //     type:'dic',
+          //   },
+          // },
+          // {
+          //   label: "性别",
+          //   prop: "switch",
+          //   span: 6,
+          //   type: "switch",
+          //   dicData: DIC.SEX,
+          //   mock:{
+          //     type:'dic'
+          //   },
+          //   hide: true,
+          //   row:true,
+          // },
           {
             label: "性别",
             prop: "sex",
@@ -131,7 +129,7 @@ export default {
             }
           },
           {
-            label: "数字",
+            label: "献血量",
             prop: "number",
             type: 'number',
             span: 6,
@@ -159,7 +157,7 @@ export default {
             row:true,
           },
           {
-            label: "日期",
+            label: "献血日期",
             prop: "date",
             type: "date",
             span:8,
@@ -170,19 +168,19 @@ export default {
               format:'yyyy-MM-dd'
             },
           },
-          {
-            label: "日期时间",
-            prop: "datetime",
-            type: "datetime",
-            span:8,
-            format:'yyyy-MM-dd hh:mm:ss',
-            valueFormat:'yyyy-MM-dd hh:mm:ss',
-            mock:{
-              type:'datetime',
-              format:'yyyy-MM-dd hh:mm:ss',
-              now:true,
-            },
-          },
+          // {
+          //   label: "日期时间",
+          //   prop: "datetime",
+          //   type: "datetime",
+          //   span:8,
+          //   format:'yyyy-MM-dd hh:mm:ss',
+          //   valueFormat:'yyyy-MM-dd hh:mm:ss',
+          //   mock:{
+          //     type:'datetime',
+          //     format:'yyyy-MM-dd hh:mm:ss',
+          //     now:true,
+          //   },
+          // },
           {
             label: "时间",
             prop: "time",
@@ -196,14 +194,14 @@ export default {
             },
           },
           {
-            label: "地址",
+            label: "献血地址",
             span: 24,
             prop: "address",
             mock:{
               type:'county'
             },
           },{
-            label: "建议",
+            label: "指导建议",
             span: 24,
             prop: "adit",
             mock:{
@@ -229,9 +227,9 @@ export default {
     submit () {
       this.$message.success('当前数据'+JSON.stringify(this.obj));
     },
-    tip(){
-      this.$message.success('自定义按钮');
-    }
+    // tip(){
+    //   this.$message.success('自定义按钮');
+    // }
   }
 }
 
