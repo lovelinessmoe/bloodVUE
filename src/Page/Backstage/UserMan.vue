@@ -57,14 +57,30 @@
                     dialogClickModal: false,
                     column: [
                         // {label: '用户ID', prop: 'userId', width: 200,},
-                        {label: '用户名', prop: 'userName', search: true},
-                        {label: '角色', prop: 'roleId', search: true},
+                        {label: '用户名', prop: 'userName'},
+                        {
+                            label: '角色', prop: 'roleId', search: true,
+                            dicUrl: "/dict/getDictByCode?code=ROLE",
+                            type:"select",
+                        },
                         {label: '邮箱', prop: 'email', width: 200, search: true},
                         {label: '年龄', prop: 'age', search: true},
                         {label: '真实姓名', prop: 'realName', search: true},
-                        {label: '血型', prop: 'bloodGroup', search: true},
-                        {label: 'RH', prop: 'rh', search: true},
-                        {label: '性别', prop: 'sex', search: true},
+                        {
+                            label: '血型', prop: 'bloodGroup', search: true,
+                            dicUrl: "/dict/getDictByCode?code=BLOOD_GROUP",
+                            type:"select",
+                        },
+                        {
+                            label: 'RH', prop: 'rh', search: true,
+                            dicUrl: "/dict/getDictByCode?code=RH",
+                            type:"select",
+                        },
+                        {
+                            label: '性别', prop: 'sex', search: true,
+                            dicUrl: "/dict/getDictByCode?code=USER_SEX",
+                            type:"select",
+                        },
                         {label: '年龄', prop: 'age', search: true},
                     ]
                 },
@@ -79,7 +95,7 @@
             };
         },
         directives: {},
-        created() {
+        async created() {
         },
         computed: {},
         methods: {
