@@ -14,7 +14,7 @@ const routes = [
     {path: '/blood/userInfo', component: () => import('@/Page/UserInfo.vue'), meta: {title: '用户信息'}},
     {path: '/login', component: () => import('@/Page/Login.vue'), meta: {title: '登陆'}},
     {
-        path: '/backstage/', component: () => import('@/Page/Backstage/BackHomePage'),
+        path: '/backstage', component: () => import('@/Page/Backstage/BackHomePage'),
         beforeEnter: () => {
             // 如果store.state.user是undefined返回false，正常返回他的权限是否等于ROLE_ADMIN
             if (store.state.user ? false : store.state.user.authorities[0].authority === 'ROLE_ADMIN') {
@@ -29,6 +29,7 @@ const routes = [
             {path: '', redirect: '/backstage/home'},
             {path: 'home', component: () => import('@/Page/Backstage/BackHomePage')},
             {path: 'userMan', component: () => import('@/Page/Backstage/UserMan'), meta: {title: '用户管理'}},
+            {path:'bloodManagement',component : () => import('@/Page/Backstage/BloodManagement'), meta: {title: '血液管理'}}
         ]
     },
 ]

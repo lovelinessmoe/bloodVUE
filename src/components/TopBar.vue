@@ -24,7 +24,7 @@
                         <router-link to="/backstage/userMan">用户管理</router-link>
                     </div>
                     <div class="sub-menu">
-                        <router-link to="/backstage/articleMan">文章管理</router-link>
+                        <router-link to="/backstage/bloodManagement">血液管理</router-link>
                     </div>
                     <div class="sub-menu">
                         <router-link to="/backstage/tagMan">标签管理</router-link>
@@ -121,6 +121,7 @@
         -moz-transition: .3s all linear;
         -o-transition: .3s all ease;
         -ms-transition: .3s all ease;
+      background-color: #FDFDFD;
 
         &.hidden {
             top: -100px;
