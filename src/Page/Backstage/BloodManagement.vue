@@ -1,6 +1,8 @@
 <template>
   <!-- eslint-disable-next-line -->
   <div class="animate" style="margin-top: 80px;padding: 20px;">
+
+    <h1 style="margin: 0 auto; text-align: center; color: #d81e06">血液管理</h1>
     <el-row style="margin-bottom:20px">
       <el-radio-group v-model="sizeValue">
 

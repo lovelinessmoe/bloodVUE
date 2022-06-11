@@ -2,8 +2,9 @@
 <template>
     <!--登录表单的容器-->
     <div class="login_container"
-         style="background-image: url('https://s2.loli.net/2022/04/03/NxQafWFpP5YkTm3.jpg');
-                background-repeat: no-repeat;background-size: cover">
+         style="background-image: url('https://s1.ax1x.com/2022/04/30/OpsuRS.jpg');
+                background-repeat: no-repeat;
+                background-size: cover">
         <!--登录区域-->
         <div class="login_box">
             <el-form :model="loginForm" :rules="loginRules" class="login_form" ref="loginForm">
@@ -205,10 +206,10 @@
     }
 
     .login_box {
-        border: 1px solid red;
+        border: 1px solid black;
         margin: 0 auto;
         padding: 20px;
-        background-color: whitesmoke;
+        background-color: #f3f2f2;
         width: 300px;
         border-radius: 18px;
 
@@ -218,6 +219,8 @@
             .login_btn {
                 display: flex;
                 justify-content: flex-end;
+                margin-top: 30px;
+                margin-left: 20px;
             }
 
             .verifyCode_box {

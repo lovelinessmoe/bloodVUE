@@ -1,6 +1,17 @@
 <template>
     <div class="home">
-       <img src="../assets/img/HomePicture.jpg">
+      <div>
+        <img src="../assets/img/HomePicture.jpg">
+        <h1 style="position: absolute;
+        top: 350px;
+        margin: 0 auto;
+        color: #FDFDFD;
+        left: 450px;
+        font-size: 50px;
+          ">欢迎进入血库管理系统</h1>
+      </div>
+
+
     </div>
 </template>
 
