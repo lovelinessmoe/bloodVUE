@@ -1,7 +1,7 @@
 <template>
     <LoadingPage/>
     <TopBar/>
-    <BlogPage/>
+    <BloodPage/>
     <FooterView/>
     <meting-js
             fixed="true"
@@ -17,12 +17,12 @@
 <script>
     import LoadingPage from "@/components/LoadingPage";
     import TopBar from "@/components/TopBar";
-    import BlogPage from "@/Page/BlogPage";
+    import BloodPage from "@/Page/BloodPage";
     import FooterView from "@/components/FooterView";
 
     export default {
         name: 'App',
-        components: {FooterView, BlogPage, TopBar, LoadingPage},
+        components: {FooterView, BloodPage, TopBar, LoadingPage},
         data() {
             return {}
         },

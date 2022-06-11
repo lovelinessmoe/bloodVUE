@@ -8,7 +8,7 @@
                         <template #header>
                             <div class="card-header">
                                 <div style="">
-                                    <span>个人资料修改</span>
+                                    <span>个人资料修改:{{user.userName}}</span>
                                     <el-button @click="userCheckModel = true;" circle icon="Check" style="float:right;"
                                                type="success"/>
                                     <div style="clear:both;"></div>
@@ -17,21 +17,22 @@
                         </template>
                         <div>
                             <el-row>
-                                <el-col :md="8" :sm="10" :xs="24" class="grid-cell">
-                                    <el-avatar :size="200" :src="user.avatarUrl" @click="cropperModel=true"
-                                               fit="fill"
-                                               shape="square"/>
-                                </el-col>
-                                <el-col :md="16" :sm="14" :xs="24" class="grid-cell">
-                                    <el-form-item label="昵称" prop="">
-                                        <el-input clearable type="text" v-model="user.userName"></el-input>
+                                <el-col :md="12" :sm="12" :xs="24" class="grid-cell">
+                                    <el-form-item label="姓名" prop="">
+                                        <el-input clearable type="text" v-model="user.realName"></el-input>
                                     </el-form-item>
+                                </el-col>
+                                <el-col :md="12" :sm="12" :xs="24" class="grid-cell">
                                     <el-form-item label="年龄" prop="">
                                         <el-input clearable type="number" v-model="user.age"></el-input>
                                     </el-form-item>
+                                </el-col>
+                                <el-col :md="12" :sm="12" :xs="24" class="grid-cell">
                                     <el-form-item label="手机号" prop="">
                                         <el-input clearable type="text" v-model="user.telephone"></el-input>
                                     </el-form-item>
+                                </el-col>
+                                <el-col :md="12" :sm="12" :xs="24" class="grid-cell">
                                     <el-form-item label="密码" prop="">
                                         <el-input clearable placeholder="留空表示不修改" type="password"
                                                   v-model="user.password"></el-input>
@@ -44,18 +45,6 @@
             </div>
         </div>
     </div>
-
-    <!-- 剪裁组件弹窗 -->
-    <el-dialog
-            fullscreen="fullscreen"
-            title="裁切封面"
-            v-model="cropperModel">
-        <cropper-image
-                :fixedNumber="[1,1]"
-                :url="user.avatarUrl?user.avatarUrl:''"
-                @upload-img="handleUpload">
-        </cropper-image>
-    </el-dialog>
 
     <el-dialog
             title="身份验证"
@@ -93,8 +82,6 @@
     import {logout} from "@/api/login";
     import {removeUser} from "@/utils/token";
     import router from '@/router'
-    import useUpYun from '@/hooks/useUpYun'
-
 
     const {getCaptcha, captchaVal} = authCheck()
 
@@ -107,20 +94,6 @@
         user.value = res.data;
     });
     let userCheckModel = ref(false);
-
-    //图片上传
-    let cropperModel = ref(false);
-
-    const {uploadAvatarImg} = useUpYun();
-
-    //图片上传
-    async function handleUpload(data) {
-        let res = await uploadAvatarImg(data);
-        if (res.success) {
-            user.value.avatarUrl = res.data;
-            cropperModel.value = false;
-        }
-    }
 
     //邮箱
     let mailCode = ref('');

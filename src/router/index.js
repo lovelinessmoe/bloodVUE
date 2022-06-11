@@ -4,10 +4,17 @@ import store from '@/store'
 
 const routes = [
     {path: '/', redirect: '/blood'},
-    {path: '/blood/', component: () => import('@/Page/Home.vue')},
+    {
+        path: '/blood/', component: () => import('@/Page/Home'),
+        children: [
+            {path: '', redirect: '/blood/home'},
+            {path: 'home', component: () => import('@/Page/Home')},
+        ]
+    },
+    {path: '/blood/userInfo', component: () => import('@/Page/UserInfo.vue'), meta: {title: '用户信息'}},
     {path: '/login', component: () => import('@/Page/Login.vue'), meta: {title: '登陆'}},
     {
-        path: '/backstage/', component: () => import('@/Page/BlogPage.vue'),
+        path: '/backstage/', component: () => import('@/Page/Backstage/BackHomePage'),
         beforeEnter: () => {
             // 如果store.state.user是undefined返回false，正常返回他的权限是否等于ROLE_ADMIN
             if (store.state.user ? false : store.state.user.authorities[0].authority === 'ROLE_ADMIN') {

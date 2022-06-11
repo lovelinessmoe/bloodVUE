@@ -2,7 +2,7 @@
     <div :class="{'fixed':fixed,'hidden':hidden}" @click.stop="mobileShow=false"
          id="layout-header">
         <div class="site-logo">
-            <router-link to="/blog/home">
+            <router-link to="/blood/home">
                 <img alt="" src="@/assets/img/logo.svg">
             </router-link>
         </div>
@@ -14,7 +14,7 @@
                 <header-search/>
             </div>
             <div class="menu-item">
-                <router-link to="/blog/home">首页</router-link>
+                <router-link to="/blood/home">首页</router-link>
             </div>
             <div class="menu-item hasChild"
                  v-if="this.$store.state.user?this.$store.state.user.authorities[0].authority==='ROLE_ADMIN':false">

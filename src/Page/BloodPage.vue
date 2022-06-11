@@ -10,7 +10,7 @@
     import BackTop from "@/components/BackToTheTop";
 
     export default {
-        name: "BlogPage",
+        name: "BloodPage",
         components: {BackTop},
         data() {
             return {}

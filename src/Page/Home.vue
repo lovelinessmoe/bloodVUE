@@ -1,6 +1,6 @@
 <template>
     <div class="home">
-
+        <h1>Home</h1>
     </div>
 </template>
 
@@ -13,16 +13,10 @@
         async created() {
         },
         data() {
-            return {
-
-            }
+            return {}
         },
-        computed: {
-
-        },
-        methods: {
-
-        }
+        computed: {},
+        methods: {}
     }
 </script>
 
