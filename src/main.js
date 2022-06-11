@@ -12,7 +12,9 @@ import moment from 'moment'
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
 import * as ElIconModules from '@element-plus/icons-vue'
+import request from '@/utils/request'
 
+window.axios = request
 const app = createApp(App)
 
 app.use(store)
