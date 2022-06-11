@@ -29,7 +29,8 @@ const routes = [
             {path: '', redirect: '/backstage/home'},
             {path: 'home', component: () => import('@/Page/Backstage/BackHomePage')},
             {path: 'userMan', component: () => import('@/Page/Backstage/UserMan'), meta: {title: '用户管理'}},
-            {path:'bloodManagement',component : () => import('@/Page/Backstage/BloodManagement'), meta: {title: '血液管理'}}
+            {path:'bloodManagement',component : () => import('@/Page/Backstage/BloodManagement'), meta: {title: '血液管理'}},
+            {path: 'bloodTest',component : () => import('@/Page/Backstage/BloodTest'),meta: {title: '抽血化验'}}
         ]
     },
 ]

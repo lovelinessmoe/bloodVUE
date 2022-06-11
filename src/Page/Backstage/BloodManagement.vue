@@ -1,30 +1,50 @@
 <template>
   <!-- eslint-disable-next-line -->
-  <div class="animate" style="margin-top: 80px;padding: 20px;">
 
-    <h1 style="margin: 0 auto; text-align: center; color: #d81e06">血液管理</h1>
-    <el-row style="margin-bottom:20px">
+    <div class="login_container"
+         style="background-image: url('https://s1.ax1x.com/2022/04/30/LzkuUH.png');
+                background-repeat: no-repeat;
+                background-size: cover;
+                height: 800px">
+      <div class="animate" style="margin-top: 80px;padding: 20px;">
+    <h1 style="margin: 0 auto;
+      text-align: center;
+      color: #000000;
+      font-size: 40px">血液管理系统</h1>
+    <el-row style="margin-bottom:20px;border-radius: 30px;
+">
       <el-radio-group v-model="sizeValue">
 
       </el-radio-group>
     </el-row>
-    <avue-form ref="form" v-model="obj" :option="option" @reset-change="emptytChange" @submit="submit">
+    <avue-form ref="form" v-model="obj" :option="option" @reset-change="emptytChange" @submit="submit"
+    style="background-color:transparent;border-radius: 30px;">
 <!--      <template #menu-form="">-->
 <!--        <el-button @click="tip">自定义按钮</el-button>-->
 <!--      </template>-->
     </avue-form>
+    </div>
   </div>
 </template>
 
 <script>
 var DIC = {
   VAILD: [{
-    label: '真',
+    label: 'o型',
     value: 'true'
   }, {
-    label: '假',
-    value: 'false'
-  }],
+    label: 'a型',
+    value: 'true'
+  },
+{
+  label: 'b型',
+      value: 'true'
+},
+    {
+      label: 'ab型',
+      value: 'true'
+    }
+  ],
   SEX: [{
     label: '男',
     value: 0
@@ -73,21 +93,21 @@ export default {
           {
             label: "姓名",
             prop: "name",
-            disabled:true,
+            disabled:false,
             mock:{
               type:'name'
             },
             span:8
           },
-          {
-            label: "密码",
-            prop: "password",
-            type:'password',
-            mock:{
-              type:'name'
-            },
-            span:8
-          },
+          // {
+          //   label: "密码",
+          //   prop: "password",
+          //   type:'password',
+          //   mock:{
+          //     type:'name'
+          //   },
+          //   span:8
+          // },
           {
             label: "血型",
             prop: "type",
@@ -217,7 +237,7 @@ export default {
   },
   mounted(){
     this.obj={
-      username :'smallwei',
+      username :'csm',
       switch:0,
       phone:'17547400800'
     }

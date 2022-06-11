@@ -27,7 +27,7 @@
                         <router-link to="/backstage/bloodManagement">血液管理</router-link>
                     </div>
                     <div class="sub-menu">
-                        <router-link to="/backstage/tagMan">标签管理</router-link>
+                        <router-link to="/backstage/bloodTest">抽血化验</router-link>
                     </div>
                 </div>
             </div>
@@ -44,7 +44,6 @@
             </div>
 
             <div class="menu-item" v-else>
-
                 <router-link to="/login">登陆/注册</router-link>
             </div>
         </div>
