@@ -1,9 +1,5 @@
 <template>
-    <div>
-        <p>
-            后台首页，图标等
-        </p>
-    </div>
+    <router-view/>
 </template>
 
 <script>

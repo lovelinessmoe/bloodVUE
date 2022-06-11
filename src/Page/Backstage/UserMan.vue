@@ -58,8 +58,13 @@
                     column: [
                         // {label: '用户ID', prop: 'userId', width: 200,},
                         {label: '用户名', prop: 'userName', search: true},
-                        {label: '手机号', prop: 'telephone', width: 200, search: true},
+                        {label: '角色', prop: 'roleId', search: true},
                         {label: '邮箱', prop: 'email', width: 200, search: true},
+                        {label: '年龄', prop: 'age', search: true},
+                        {label: '真实姓名', prop: 'realName', search: true},
+                        {label: '血型', prop: 'bloodGroup', search: true},
+                        {label: 'RH', prop: 'rh', search: true},
+                        {label: '性别', prop: 'sex', search: true},
                         {label: '年龄', prop: 'age', search: true},
                     ]
                 },
