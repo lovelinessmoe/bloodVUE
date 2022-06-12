@@ -31,7 +31,7 @@
 </template>
 
 <script>
-    import {add, getList, remove, removeMany, update} from "@/api/Backstage/user";
+    import {add, getList, remove, removeMany, update} from "@/api/Backstage/admin/user";
 
     export default {
         name: "UserMan",
