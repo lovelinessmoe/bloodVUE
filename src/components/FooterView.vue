@@ -14,11 +14,12 @@
             </div>
             <div class="footer-item">
                 <div>
-                    <span>喵喵博客由</span>
-<!--                    <img height="20" src="@/assets/img/upyun_logo.svg" style="vertical-align:middle;" width="40"/>-->
-                    <a class="out-link" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"
-                       target="_blank"> 又拍云 </a>
-                    <span>提供CDN加速/云存储服务</span>
+                    <span>鸿雁因团结而远翔，生命因热血而续航</span>
+
+<!--&lt;!&ndash;                    <img height="20" src="@/assets/img/upyun_logo.svg" style="vertical-align:middle;" width="40"/>&ndash;&gt;-->
+<!--                    <a class="out-link" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"-->
+<!--                       target="_blank"> 又拍云 </a>-->
+<!--                    <span>提供CDN加速/云存储服务</span>-->
                 </div>
             </div>
         </div>

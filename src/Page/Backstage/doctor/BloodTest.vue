@@ -1,127 +1,210 @@
+<!--用户管理-->
 <template>
   <div class="animate" style="margin-top: 80px;padding: 20px;">
+    <avue-crud
+        :data="data"
+        :option="option"
+        :table-loading="loading"
+        @current-change="currentChange"
+        @on-load="onLoad"
+        @refresh-change="refreshChange"
+        @row-del="rowDel"
+        @row-save="rowSave"
+        @row-update="rowUpdate"
+        @search-change="searchChange"
+        @search-reset="searchReset"
+        @selection-change="selectionChange"
+        @size-change="sizeChange"
+        ref="crud"
+        v-model="form"
+        v-model:page="page">
 
+      <template #menu-left="">
+        <el-button @click="delSelection" text type="danger">
+          删除{{selectionList.length}}个用户
+        </el-button>
+      </template>
 
-
-      <avue-crud :data="data" :option="option" :table-loading="showLoading" >
-        <template >
-          <el-dropdown-item divided >自定义按钮</el-dropdown-item>
-        </template>
-        <template >
-          <el-button :type="type" :size="size">自定义按钮</el-button>
-        </template>
-      </avue-crud>
-
-    </div>
+    </avue-crud>
+  </div>
 
 </template>
 
 <script>
+import {add, getList, remove, removeMany, update} from "@/api/Backstage/admin/user";
+
 export default {
-  name: "bloodTest",
+  name: "UserMan",
   data() {
     return {
-      page:{
-        total:100,
-        currentPage: 1
-      },
-      data: [
-        {
-          name:'张三',
-          sex:'男'
-        }, {
-          name:'李四',
-          sex:'女'
-        }, {
-          name:'王五',
-          sex:'女'
-        }, {
-          name:'赵六',
-          sex:'男'
-        },
-        {
-          name:'赵六',
-          sex:'男'
-        },
-        {
-          name:'赵六',
-          sex:'男'
-        },
-        {
-          name:'赵六',
-          sex:'男'
-        },{
-          name:'赵六',
-          sex:'男'
-        },{
-          name:'赵六',
-          sex:'男'
-        },{
-          name:'赵六',
-          sex:'男'
-        },
-        {
-          name:'赵六',
-          sex:'男'
-        },
-        {
-          name:'赵六',
-          sex:'男'
-        }
-
-
-
-
-      ],
-      menuType:'text',
-      showLoading:false,
-      showCard:false,
-      showBorder: false,
-      showStripe: false,
-      showHeader: true,
-      showIndex: true,
-      showCheckbox: false,
-      showPage:true,
-      sizeValue:'small'
-    }
-  },
-  computed: {
-    option(){
-      return{
-        title:'',
-        titleSize:'h3',
-        titleStyle:{
-          color:'red'
-        },
-        card:this.showCard,
-        border:this.showBorder,
-        stripe:this.showStripe,
-        showHeader:this.showHeader,
-        index:this.showIndex,
-        size:this.sizeValue,
-        selection:this.showCheckbox,
-        page:this.showPage,
-        align:'center',
-        menuAlign:'center',
-        menuType:this.menuType,
-        menuBtnTitle:'自定义名称',
-        column:[
+      data: [],
+      form: {},
+      query: {},
+      loading: true,
+      option: {
+        addBtn: false,
+        height: 'auto',
+        calcHeight: 150,
+        tip: false,
+        searchShow: true,
+        searchMenuSpan: 6,
+        card: true,
+        excelBtn: true,
+        border: true,
+        index: true,
+        viewBtn: false,
+        selection: true,
+        dialogClickModal: false,
+        column: [
+          // {label: '用户ID', prop: 'userId', width: 200,},
+          {label: '用户名', prop: 'userName'},
           {
-            label:'姓名',
-            prop:'name',
-            search:true
+            label: '角色', prop: 'roleId', search: true,
+            dicUrl: "/dict/getDictByCode?code=ROLE",
+            type:"select",
+          },
+          {label: '邮箱', prop: 'email', width: 200, search: true},
+          {label: '年龄', prop: 'age', search: true},
+          {label: '真实姓名', prop: 'realName', search: true},
+          {
+            label: '血型', prop: 'bloodGroup', search: true,
+            dicUrl: "/dict/getDictByCode?code=BLOOD_GROUP",
+            type:"select",
           },
           {
-            label:'性别',
-            prop:'sex'
-          }
+            label: 'RH', prop: 'rh', search: true,
+            dicUrl: "/dict/getDictByCode?code=RH",
+            type:"select",
+          },
+          {
+            label: '性别', prop: 'sex', search: true,
+            dicUrl: "/dict/getDictByCode?code=USER_SEX",
+            type:"select",
+          },
+          {label: '年龄', prop: 'age', search: true},
         ]
+      },
+      currentStartIndex: 0,
+      currentEndIndex: 20,
+      page: {
+        pageSize: 10,
+        currentPage: 1,
+        total: 0
+      },
+      selectionList: [],
+    };
+  },
+  directives: {},
+  async created() {
+  },
+  computed: {},
+  methods: {
+    async delSelection() {
+      if (this.selectionList.length !== 0) {
+        let r = await this.$confirm("确定将选择数据删除?", {
+          confirmButtonText: "确定",
+          cancelButtonText: "取消",
+          type: "warning"
+        })
+        if (r === 'confirm') {
+          let res = await removeMany(this.selectionList);
+          if (res.success) {
+            await this.onLoad(this.page);
+            this.$message({
+              type: "success",
+              message: "操作成功!"
+            });
+          }
+        }
+      } else {
+        this.$message.error('未选中任何项')
       }
+    },
+    async rowSave(row, done, loading) {
+      try {
+        await add(row)
+        await this.onLoad(this.page);
+        this.$message({
+          type: "success",
+          message: "操作成功!"
+        });
+        done();
+      } catch (e) {
+        loading();
+        console.log(e);
+      }
+    },
+    async rowUpdate(row, index, done, loading) {
+      try {
+        await update(row)
+        await this.onLoad(this.page);
+        this.$message({
+          type: "success",
+          message: "操作成功!"
+        });
+        done();
+      } catch (e) {
+        loading();
+        console.log(e);
+      }
+    },
+    async rowDel(row) {
+      let r = await this.$confirm("确定将选择数据删除?", {
+        confirmButtonText: "确定",
+        cancelButtonText: "取消",
+        type: "warning"
+      })
+      if (r === 'confirm') {
+        let res = await remove(row.userId);
+        if (res.success) {
+          await this.onLoad(this.page);
+          this.$message({
+            type: "success",
+            message: "操作成功!"
+          });
+        }
+      }
+    },
+    searchReset() {
+      this.query = {};
+      this.onLoad(this.page);
+    },
+    searchChange(params, done) {
+      this.query = params;
+      this.page.currentPage = 1;
+      this.onLoad(this.page, params);
+      done();
+    },
+    selectionChange(list) {
+      this.selectionList = list;
+    },
+    selectionClear() {
+      this.selectionList = [];
+      this.$refs.crud.toggleSelection();
+    },
+    currentChange(currentPage) {
+      this.page.currentPage = currentPage;
+    },
+    sizeChange(pageSize) {
+      this.page.pageSize = pageSize;
+    },
+    refreshChange() {
+      this.onLoad(this.page, this.query);
+    },
+    async onLoad(page, params = {}) {
+      this.loading = true;
+      let res = await getList(page.currentPage, page.pageSize, Object.assign(params, this.query))
+      const data = res.data;
+      this.page.total = data.total;
+      this.data = data.records;
+      this.loading = false;
+      this.selectionClear();
     }
-  }
+  },
+  mounted() {
+    this.$store.commit('SET_LOADING', false);
+  },
 }
-
-
 </script>
 
 <style scoped>
