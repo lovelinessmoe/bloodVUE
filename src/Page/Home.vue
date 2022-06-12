@@ -1,7 +1,11 @@
 <template>
     <div class="home">
-      <div>
-        <img src="../assets/img/HomePicture.jpg">
+
+        <div class="login_container"
+             style="background-image: url('https://s1.ax1x.com/2022/05/01/OCEBE6.jpg');
+                background-repeat: no-repeat;
+                background-size: cover;
+                height: 800px">
         <h1 style="position: absolute;
         top: 350px;
         margin: 0 auto;
