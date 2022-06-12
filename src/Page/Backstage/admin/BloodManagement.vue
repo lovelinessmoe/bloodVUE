@@ -1,11 +1,11 @@
 <template>
   <!-- eslint-disable-next-line -->
 
-    <div class="login_container"
-         style="background-image: url('https://s1.ax1x.com/2022/04/30/LzkuUH.png');
-                background-repeat: no-repeat;
-                background-size: cover;
-                height: 800px">
+<!--    <div class="login_container"-->
+<!--         style="background-image: url('https://s1.ax1x.com/2022/04/30/LzkuUH.png');-->
+<!--                background-repeat: no-repeat;-->
+<!--                background-size: cover;-->
+<!--                height: 800px">-->
       <div class="animate" style="margin-top: 80px;padding: 20px;">
     <h1 style="margin: 0 auto;
       text-align: center;
@@ -24,7 +24,7 @@
 <!--      </template>-->
     </avue-form>
     </div>
-  </div>
+<!--  </div>-->
 </template>
 
 <script>
