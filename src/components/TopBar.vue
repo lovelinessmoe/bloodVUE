@@ -18,7 +18,7 @@
             </div>
             <div class="menu-item hasChild"
                  v-if="this.$store.state.user?this.$store.state.user.authorities[0].authority==='ROLE_ADMIN':false">
-                <router-link to="/blood/home">后台管理</router-link>
+                <router-link to="/backstage">后台管理</router-link>
                 <div class="childMenu">
                     <div class="sub-menu">
                         <router-link to="/backstage/userMan">用户管理</router-link>
