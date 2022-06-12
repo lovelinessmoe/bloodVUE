@@ -128,7 +128,7 @@
                             message: '登陆成功',
                             type: 'success'
                         });
-                        await this.$router.push('/blog/home');
+                        await this.$router.push('/blood/home');
                     } else {
                         //重新获取验证码
                         await this.captcha()
