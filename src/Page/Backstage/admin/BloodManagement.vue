@@ -23,7 +23,10 @@
         <el-button @click="delSelection" text type="danger">
           删除{{selectionList.length}}个用户
         </el-button>
+
+
       </template>
+
 
     </avue-crud>
   </div>
@@ -42,10 +45,11 @@ export default {
       query: {},
       loading: true,
       option: {
-        addBtn: false,
+
+        addBtn:false,
         height: 'auto',
         calcHeight: 150,
-        tip: false,
+        tip: true,
         searchShow: true,
         searchMenuSpan: 6,
         card: true,
@@ -54,7 +58,7 @@ export default {
         index: true,
         viewBtn: false,
         selection: true,
-        dialogClickModal: false,
+        dialogClickModal: true,
         column: [
           {label: '血液ID', prop: 'blood_id'},
           {label: '捐献方式', prop: 'in_source'},

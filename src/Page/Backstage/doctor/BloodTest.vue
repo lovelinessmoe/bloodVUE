@@ -21,9 +21,49 @@
 
       <template #menu-left="">
         <el-button @click="delSelection" text type="danger">
-          删除{{selectionList.length}}个用户
+          删除{{ selectionList.length }}个用户
         </el-button>
+
       </template>
+
+      <template #menu="{}">
+        <el-button type="primary"
+                   icon="el-icon-check"
+                   size="small"
+
+                   @click="dialogFormVisible = true"
+        >抽血
+        </el-button>
+
+        <!--        <el-button type="primary"-->
+        <!--                   icon="el-icon-check"-->
+        <!--                   size="small"-->
+        <!--                   @click="$refs.crud.closeDialog()"-->
+        <!--        >取消</el-button>-->
+        <el-dialog v-model="dialogFormVisible" title="Shipping address">
+          <el-form :model="form">
+            <el-form-item label="Promotion name" :label-width="formLabelWidth">
+              <el-input v-model="form.name" autocomplete="off"/>
+            </el-form-item>
+            <el-form-item label="Zones" :label-width="formLabelWidth">
+              <el-select v-model="form.region" placeholder="Please select a zone">
+                <el-option label="Zone No.1" value="shanghai"/>
+                <el-option label="Zone No.2" value="beijing"/>
+              </el-select>
+            </el-form-item>
+          </el-form>
+          <template #footer>
+      <span class="dialog-footer">
+        <el-button @click="dialogFormVisible = false">Cancel</el-button>
+        <el-button type="primary" @click="dialogFormVisible = false"
+        >Confirm</el-button
+        >
+      </span>
+          </template>
+        </el-dialog>
+
+      </template>
+
 
     </avue-crud>
   </div>
@@ -31,17 +71,64 @@
 </template>
 
 <script>
+
+import {reactive, ref} from 'vue'
+
+const dialogTableVisible = ref(false)
+const dialogFormVisible = ref(false)
+const formLabelWidth = '140px'
+
+const form = reactive({
+  name: '',
+  region: '',
+  date1: '',
+  date2: '',
+  delivery: false,
+  type: [],
+  resource: '',
+  desc: '',
+})
+
+const gridData = [
+  {
+    date: '2016-05-02',
+    name: 'John Smith',
+    address: 'No.1518,  Jinshajiang Road, Putuo District',
+  },
+  {
+    date: '2016-05-04',
+    name: 'John Smith',
+    address: 'No.1518,  Jinshajiang Road, Putuo District',
+  },
+  {
+    date: '2016-05-01',
+    name: 'John Smith',
+    address: 'No.1518,  Jinshajiang Road, Putuo District',
+  },
+  {
+    date: '2016-05-03',
+    name: 'John Smith',
+    address: 'No.1518,  Jinshajiang Road, Putuo District',
+  },
+]
+// eslint-disable-next-line
 import {add, getList, remove, removeMany, update} from "@/api/Backstage/admin/user";
 
 export default {
   name: "UserMan",
   data() {
     return {
+      dialogFormVisible: false,
       data: [],
       form: {},
       query: {},
       loading: true,
       option: {
+        saveBtn: false,
+        updateBtn: false,
+        cancelBtn: false,
+        delBtn: false,
+        editBtn: false,
         addBtn: false,
         height: 'auto',
         calcHeight: 150,
@@ -61,7 +148,7 @@ export default {
           {
             label: '角色', prop: 'roleId', search: true,
             dicUrl: "/dict/getDictByCode?code=ROLE",
-            type:"select",
+            type: "select",
           },
           {label: '邮箱', prop: 'email', width: 200, search: true},
           {label: '年龄', prop: 'age', search: true},
@@ -69,17 +156,17 @@ export default {
           {
             label: '血型', prop: 'bloodGroup', search: true,
             dicUrl: "/dict/getDictByCode?code=BLOOD_GROUP",
-            type:"select",
+            type: "select",
           },
           {
             label: 'RH', prop: 'rh', search: true,
             dicUrl: "/dict/getDictByCode?code=RH",
-            type:"select",
+            type: "select",
           },
           {
             label: '性别', prop: 'sex', search: true,
             dicUrl: "/dict/getDictByCode?code=USER_SEX",
-            type:"select",
+            type: "select",
           },
           {label: '年龄', prop: 'age', search: true},
         ]
@@ -208,5 +295,19 @@ export default {
 </script>
 
 <style scoped>
+.el-button--text {
+  margin-right: 15px;
+}
 
+.el-select {
+  width: 300px;
+}
+
+.el-input {
+  width: 300px;
+}
+
+.dialog-footer button:first-child {
+  margin-right: 10px;
+}
 </style>
