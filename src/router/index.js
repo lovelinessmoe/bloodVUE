@@ -26,11 +26,15 @@ const routes = [
             }
         },
         children: [
-
+            {path: '', redirect: '/backstage/home'},
             {path: 'home', component: () => import('@/Page/Backstage/BackHomePage')},
             {path: 'userMan', component: () => import('@/Page/Backstage/admin/UserMan'), meta: {title: '用户管理'}},
-            {path:'bloodManagement',component : () => import('@/Page/Backstage/admin/BloodManagement'), meta: {title: '血液管理'}},
-            {path: 'bloodTest',component : () => import('@/Page/Backstage/doctor/BloodTest'),meta: {title: '抽血化验'}}
+            {
+                path: 'bloodManagement',
+                component: () => import('@/Page/Backstage/admin/BloodManagement'),
+                meta: {title: '血液管理'}
+            },
+            {path: 'bloodTest', component: () => import('@/Page/Backstage/doctor/BloodTest'), meta: {title: '抽血化验'}}
         ]
     },
 ]
