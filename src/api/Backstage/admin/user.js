@@ -28,12 +28,12 @@ export const update = (row) => {
     })
 }
 
-export const remove = (ids) => {
+export const remove = (id) => {
     return request({
         url: 'backstage/user/remove',
         method: 'post',
         params: {
-            userId: ids,
+            id: id,
         }
     })
 }
