@@ -14,12 +14,12 @@
             </div>
             <div class="footer-item">
                 <div>
-                    <span>鸿雁因团结而远翔，生命因热血而续航</span>
+                    <span style="font-size: 22px">{{sentence}}</span>
 
-<!--&lt;!&ndash;                    <img height="20" src="@/assets/img/upyun_logo.svg" style="vertical-align:middle;" width="40"/>&ndash;&gt;-->
-<!--                    <a class="out-link" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"-->
-<!--                       target="_blank"> 又拍云 </a>-->
-<!--                    <span>提供CDN加速/云存储服务</span>-->
+                    <!--&lt;!&ndash;                    <img height="20" src="@/assets/img/upyun_logo.svg" style="vertical-align:middle;" width="40"/>&ndash;&gt;-->
+                    <!--                    <a class="out-link" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"-->
+                    <!--                       target="_blank"> 又拍云 </a>-->
+                    <!--                    <span>提供CDN加速/云存储服务</span>-->
                 </div>
             </div>
         </div>
@@ -33,6 +33,12 @@
 <script>
     export default {
         name: "FooterView",
+        data() {
+            return {
+                sentence: "鸿雁因团结而远翔，生命因热血而续航",
+            }
+        },
+
     }
 </script>
 
@@ -43,6 +49,7 @@
         border-top: 1px solid #F7F7F7;
         font-size: 13px;
         color: #9c9c9c;
+        margin-bottom: 66px;
 
         a.out-link:hover {
             color: #ff6d6d;

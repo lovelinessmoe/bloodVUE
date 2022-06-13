@@ -6,7 +6,7 @@
                 background-repeat: no-repeat;
                 background-size: cover;
                 height: 800px">
-        <h1 style="position: relative;
+            <h1 style="position: relative;
         padding-top: 300px;
         margin: 0 auto;
         color: #FDFDFD;
@@ -16,7 +16,7 @@
         vertical-align:middle;
         display:block;
           ">欢迎进入血库管理系统</h1>
-      </div>
+        </div>
 
 
     </div>

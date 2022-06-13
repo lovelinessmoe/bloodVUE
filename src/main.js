@@ -14,13 +14,9 @@ import 'element-plus/dist/index.css'
 import * as ElIconModules from '@element-plus/icons-vue'
 import request from '@/utils/request'
 
-
-
-window.axios = request
 const app = createApp(App)
 
-
-
+window.axios = request
 
 app.use(store)
 
