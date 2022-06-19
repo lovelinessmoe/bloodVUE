@@ -16,6 +16,9 @@
             <div class="menu-item">
                 <router-link to="/blood/home">首页</router-link>
             </div>
+          <div class="menu-item">
+                <router-link to="/backstage/RankingList">排行榜</router-link>
+          </div>
             <div class="menu-item"
                  v-if="this.$store.state.user?this.$store.state.user.authorities[0].authority==='ROLE_DOCTOR':false">
                 <router-link to="/backstage/takeBlood">抽血化验</router-link>
