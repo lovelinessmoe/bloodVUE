@@ -1,17 +1,17 @@
 import request from '@/utils/request'
 
-// export const getList = (current, size, params) => {
-//     return request({
-//         url: 'backstage/user/list',
-//         method: 'get',
-//         params: {
-//             ...params,
-//             current,
-//             size,
-//         }
-//     })
-// }
-export const select = (current, size, params) => {
+export const getUserList = (current, size, params) => {
+    return request({
+        url: '/backstage/blood/updateBlood',
+        method: 'get',
+        params: {
+            ...params,
+            current,
+            size,
+        }
+    })
+}
+export const getBloodList = (current, size, params) => {
     return request({
         url: 'backstage/blood/getBloodList',
         method: 'post',
@@ -30,3 +30,6 @@ export const del = (user) => {
         data: user,
     })
 }
+
+
+

@@ -210,3 +210,7 @@
 <style scoped>
 
 </style>
+import {getDictByCode} from "@/api/Backstage/dict";
+import { putTakeBlood} from "@/api/Backstage/doctor/takeBlood";
+import {getUserList,getBloodList} from  '@/api/Backstage/admin/bloodManager'
+

@@ -23,7 +23,10 @@
         <el-button @click="delSelection" text type="danger">
           删除{{selectionList.length}}个用户
         </el-button>
+
+
       </template>
+
 
     </avue-crud>
   </div>
@@ -32,11 +35,9 @@
 
 <script>
 import {add, getList, remove, removeMany, update} from "@/api/Backstage/admin/user";
-import {getDictByCode} from "@/api/Backstage/dict";
-import { putTakeBlood} from "@/api/Backstage/doctor/takeBlood";
-import {getBloodList} from  '@/api/Backstage/admin/bloodManager'
+
 export default {
-  name: "UserMan",
+  name: "doctorView",
   data() {
     return {
       data: [],
@@ -44,10 +45,11 @@ export default {
       query: {},
       loading: true,
       option: {
+
         addBtn: false,
         height: 'auto',
         calcHeight: 150,
-        tip: false,
+        tip: true,
         searchShow: true,
         searchMenuSpan: 6,
         card: true,
@@ -56,14 +58,18 @@ export default {
         index: true,
         viewBtn: false,
         selection: true,
-        dialogClickModal: false,
+        dialogClickModal: true,
         column: [
-            {label: '捐献者', prop: 'takePerson', search: true},
-          // {label: '用户ID', prop: 'userId', width: 200,},
-          {label: '血液ID', prop: 'bloodId'},
-          {label: '捐献量', prop: 'bloodVolume', search: true},
-          {label: '捐献方式', prop: 'inSource', search: true},
-
+          {label: '血液ID', prop: 'blood_id'},
+          {label: '捐献方式', prop: 'in_source'},
+          {
+            label: '血型', prop: 'blood_type', search: true,
+            dicUrl: "/dict/getDictByCode?code=ROLE",
+            type: "select",
+          },
+          {label: '捐献开始时间', prop: 'take_time', width: 200, search: true},
+          {label: '捐献结束时间', prop: 'expire_time', search: true},
+          // {label: 'xu', prop: 'realName', search: true},
           {
             label: '血型', prop: 'bloodGroup', search: true,
             dicUrl: "/dict/getDictByCode?code=BLOOD_GROUP",
@@ -75,10 +81,11 @@ export default {
             type: "select",
           },
           {
-            label: '身份证号', prop: 'inPerson', search: true,
+            label: '捐献量', prop: 'blood_volume', search: true,
             dicUrl: "/dict/getDictByCode?code=USER_SEX",
             type: "select",
           },
+          {label: '年龄', prop: 'age', search: true},
         ]
       },
       currentStartIndex: 0,
@@ -190,7 +197,7 @@ export default {
     },
     async onLoad(page, params = {}) {
       this.loading = true;
-      let res = await getBloodList(page.currentPage, page.pageSize, Object.assign(params, this.query))
+      let res = await getList(page.currentPage, page.pageSize, Object.assign(params, this.query))
       const data = res.data;
       this.page.total = data.total;
       this.data = data.records;
