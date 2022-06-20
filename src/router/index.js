@@ -36,6 +36,8 @@ const routes = [
             },
             {path: 'takeBlood', component: () => import('@/Page/Backstage/doctor/BloodUser'), meta: {title: '抽血化验'}},
             {path: 'doctorView', component: () => import('@/Page/Backstage/doctor/DoctorView'), meta: {title: '抽血化验'}}
+            {path: 'takeBlood', component: () => import('@/Page/Backstage/doctor/BloodUser'), meta: {title: '抽血化验'}},
+            {path: 'rankingList', component: () => import('@/Page/Backstage/admin/RankingList'), meta: {title: '排行榜'}}
         ]
     },
 ]
