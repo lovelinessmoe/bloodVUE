@@ -12,10 +12,10 @@ export const getApplyList = (current, size, params) => {
     })
 }
 
-export const lookByBlood = (look) => {
+export const lookByBlood = (form_id) => {
     return request({
         url: '/backstage/doctor/trans/lookByBlood',
         method: 'post',
-        param: look
+        params: {form_id}
     })
 }

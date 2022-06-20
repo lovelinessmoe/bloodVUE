@@ -74,11 +74,6 @@ export default {
             dicUrl: "/dict/getDictByCode?code=RH",
             type: "select",
           },
-          {
-            label: '身份证号', prop: 'inPerson', search: true,
-            dicUrl: "/dict/getDictByCode?code=USER_SEX",
-            type: "select",
-          },
         ]
       },
       currentStartIndex: 0,
