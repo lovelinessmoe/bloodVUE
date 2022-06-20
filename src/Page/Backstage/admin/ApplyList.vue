@@ -18,17 +18,17 @@
 
             <template #menu="{row}">
                 <el-button @click="applyReq(row,true)"
-                           v-if="row.state === 0"
                            icon="el-icon-check"
                            size="small"
-                           type="primary">
+                           type="primary"
+                           v-if="row.state === 0">
                     同意申请
                 </el-button>
                 <el-button @click="applyReq(row,false)"
-                           v-if="row.state === 0"
                            icon="el-icon-close"
                            size="small"
-                           type="danger">
+                           type="danger"
+                           v-if="row.state === 0">
                     拒绝申请
                 </el-button>
             </template>
@@ -132,7 +132,7 @@
                 this.selectionClear();
             },
             async applyReq(row, accept) {
-                approvalBlood(row.formId,accept);
+                approvalBlood(row.formId, accept);
                 this.onLoad(this.page);
             },
         },

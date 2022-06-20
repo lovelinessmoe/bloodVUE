@@ -37,7 +37,11 @@ const routes = [
             },
             {path: 'bloodUser', component: () => import('@/Page/Backstage/doctor/BloodUser'), meta: {title: '抽血化验'}},
             {path: 'doctorView', component: () => import('@/Page/Backstage/doctor/DoctorView'), meta: {title: '医生查看'}},
-            {path: 'applyBloodList', component: () => import('@/Page/Backstage/doctor/ApplyBloodList'), meta: {title: '申请用血单'}},
+            {
+                path: 'applyBloodList',
+                component: () => import('@/Page/Backstage/doctor/ApplyBloodList'),
+                meta: {title: '申请用血单'}
+            },
             {path: 'applyList', component: () => import('@/Page/Backstage/admin/ApplyList'), meta: {title: '当前血液申请'}},
             {path: 'takeBlood', component: () => import('@/Page/Backstage/doctor/BloodUser'), meta: {title: '抽血化验'}},
             {path: 'doctorView', component: () => import('@/Page/Backstage/doctor/DoctorView'), meta: {title: '抽血化验'}},

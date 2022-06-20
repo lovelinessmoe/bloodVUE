@@ -21,6 +21,7 @@
                 query: {},
                 loading: true,
                 option: {
+                    index: true,
                     refreshBtn: false,
                     columnBtn: false,
                     addBtn: false,

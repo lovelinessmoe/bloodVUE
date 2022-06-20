@@ -81,7 +81,6 @@
                             dicUrl: "/dict/getDictByCode?code=USER_SEX",
                             type: "select",
                         },
-                        {label: '年龄', prop: 'age', search: true},
                     ]
                 },
                 currentStartIndex: 0,

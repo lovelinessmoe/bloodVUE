@@ -28,10 +28,10 @@
 
             <template #menu="{row,index}">
                 <el-button @click="openBloodInfoDialog(row,index)"
-                           v-if="row.state === 1"
                            icon="el-icon-check"
                            size="small"
-                           type="primary">
+                           type="primary"
+                           v-if="row.state === 1">
                     查看分配血液
                 </el-button>
             </template>
