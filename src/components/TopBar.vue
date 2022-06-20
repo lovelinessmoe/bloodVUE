@@ -41,6 +41,9 @@
                     <div class="sub-menu">
                         <router-link to="/backstage/bloodManagement">血液管理</router-link>
                     </div>
+                    <div class="sub-menu">
+                        <router-link to="/backstage/applyList">血液申请审批</router-link>
+                    </div>
                 </div>
             </div>
             <div class="menu-item hasChild" v-if="this.$store.state.user">
