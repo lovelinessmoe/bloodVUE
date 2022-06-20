@@ -34,6 +34,7 @@ const routes = [
                 component: () => import('@/Page/Backstage/admin/BloodManagement'),
                 meta: {title: '血液管理'}
             },
+            {path: 'applyList', component: () => import('@/Page/Backstage/admin/ApplyList'), meta: {title: '当前血液申请'}},
             {path: 'takeBlood', component: () => import('@/Page/Backstage/doctor/BloodUser'), meta: {title: '抽血化验'}},
             {path: 'doctorView', component: () => import('@/Page/Backstage/doctor/DoctorView'), meta: {title: '抽血化验'}},
             {path: 'takeBlood', component: () => import('@/Page/Backstage/doctor/BloodUser'), meta: {title: '抽血化验'}},
