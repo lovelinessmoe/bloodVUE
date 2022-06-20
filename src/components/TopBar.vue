@@ -21,12 +21,15 @@
           </div>
           <div class="menu-item"
                v-if="this.$store.state.user?this.$store.state.user.authorities[0].authority==='ROLE_DOCTOR':false">
-            <router-link to="/backstage/takeBlood">医生查看</router-link>
+            <router-link to="/backstage/doctorView">医生查看</router-link>
           </div>
-
+          <div class="menu-item"
+               v-if="this.$store.state.user?this.$store.state.user.authorities[0].authority==='ROLE_DOCTOR':false">
+            <router-link to="/backstage/applyBloodList">申请用血单</router-link>
+          </div>
             <div class="menu-item"
                  v-if="this.$store.state.user?this.$store.state.user.authorities[0].authority==='ROLE_DOCTOR':false">
-                <router-link to="/backstage/takeBlood">抽血化验</router-link>
+                <router-link to="/backstage/bloodUser">抽血化验</router-link>
             </div>
             <div class="menu-item hasChild"
                  v-if="this.$store.state.user?this.$store.state.user.authorities[0].authority==='ROLE_ADMIN':false">
