@@ -12,6 +12,7 @@ const routes = [
         ]
     },
     {path: '/blood/userInfo', component: () => import('@/Page/UserInfo.vue'), meta: {title: '用户信息'}},
+    {path: '/rankingList', component: () => import('@/Page/RankingList'), meta: {title: '排行榜'}},
     {path: '/login', component: () => import('@/Page/Login.vue'), meta: {title: '登陆'}},
     {
         path: '/backstage', component: () => import('@/Page/Backstage/BackHomePage'),
@@ -36,13 +37,12 @@ const routes = [
             },
             {path: 'bloodUser', component: () => import('@/Page/Backstage/doctor/BloodUser'), meta: {title: '抽血化验'}},
             {path: 'doctorView', component: () => import('@/Page/Backstage/doctor/DoctorView'), meta: {title: '医生查看'}},
-            {path: 'rankingList', component: () => import('@/Page/Backstage/admin/RankingList'), meta: {title: '排行榜'}},
             {path: 'applyBloodList', component: () => import('@/Page/Backstage/doctor/ApplyBloodList'), meta: {title: '申请用血单'}},
             {path: 'applyList', component: () => import('@/Page/Backstage/admin/ApplyList'), meta: {title: '当前血液申请'}},
             {path: 'takeBlood', component: () => import('@/Page/Backstage/doctor/BloodUser'), meta: {title: '抽血化验'}},
             {path: 'doctorView', component: () => import('@/Page/Backstage/doctor/DoctorView'), meta: {title: '抽血化验'}},
             {path: 'takeBlood', component: () => import('@/Page/Backstage/doctor/BloodUser'), meta: {title: '抽血化验'}},
-            {path: 'rankingList', component: () => import('@/Page/Backstage/admin/RankingList'), meta: {title: '排行榜'}}
+            {path: 'rankingList', component: () => import('@/Page/RankingList'), meta: {title: '排行榜'}}
         ]
     },
 ]

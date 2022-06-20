@@ -89,6 +89,7 @@
                     ]
                 },
                 ineerOption: {
+                    addBtn: false,
                     menu: false,
                     align: 'center',
                     menuAlign: 'center',
