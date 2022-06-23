@@ -30,7 +30,7 @@
                     menuAlign: 'center',
                     column: [
                         {label: '捐献者', prop: 'userName',},
-                        {label: '血液ID', prop: 'realName'},
+                        {label: '真实姓名', prop: 'realName'},
                         {label: '捐献量', prop: 'volumeSum',}
                     ]
                 },
@@ -41,7 +41,7 @@
         },
         computed: {},
         methods: {
-            async onLoad(page, params = {}) {
+            async onLoad() {
                 this.loading = true;
                 let res = await getRankList()
                 this.data = res.data;

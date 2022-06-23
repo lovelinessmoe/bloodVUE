@@ -46,7 +46,7 @@
                     <el-button @click="submitForm('loginForm')" type="primary" v-if="type === 'register'">注册</el-button>
                     <el-button @click="submitForm('loginForm')" type="primary" v-else>登陆</el-button>
                     <el-button @click="resetForm('loginForm')">重置</el-button>
-                    <el-button @click="type = 'login'" v-if="type === 'register'">返回登陆</el-button>
+                    <el-button @click="type = 'login'" v-if="type === 'register'">去登陆</el-button>
                     <el-button @click="type = 'register'" v-else>去注册</el-button>
                 </el-form-item>
             </el-form>
